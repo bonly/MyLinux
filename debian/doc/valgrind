@@ -1,0 +1,4 @@
+valgrind --log-file=valgrind_log --leak-check=full --track-fds=yes
+让valgrind 不报std::string泄漏,就要正常return而不是exit,或者
+gcc3.3以后版本环境变量加export GLIBCXX_FORCE_NEW=1编译测试程序,来让stl不要进行cache
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+#bonly want to listen on tcp
+exec /usr/bin/X "$@"
+#exec /usr/bin/X -nolisten tcp "$@"

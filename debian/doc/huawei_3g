@@ -1,0 +1,21 @@
+usb_modeswitch -I -W -D -s 20 -v 0x12d1 -p 0x1d50 -u 2
+CONFIG_PPP
+CONFIG_PPP_FILTER
+CONFIG_PPP_ASYNC
+CONFIG_USB_SERIAL
+CONFIG_USB_SERIAL_GENERIC
+CONFIG_USB_SERIAL_OPTION
+
+[Dialer Defaults]
+Init1 = ATZ 
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Modem Type = Analog Modem
+Baud = 460800
+New PPPD = yes 
+Modem = /dev/ttyUSB_utps_modem
+ISDN = 0 
+#Phone = *98*1#
+Phone = *99***1#
+Password = any 
+Username = any 
+

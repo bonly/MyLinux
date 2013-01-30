@@ -1,0 +1,35 @@
+20121218	       sudo,locales,wpasupplicant
+                xserver-org-core xinit
+                gnome-shell
+                fcitx-table-wbpy
+                guake
+                initramfs-tools
+                build-essential   libncurses5-dev gdb
+                openssh-client
+		libmcrypt4 #for wsql
+		libaprutil #for svn
+		dnsmasq
+                libxft-dev #for nanapro
+                 
+
+valgrind --log-file=valgrind_log --leak-check=full --track-fds=yes
+让valgrind 不报std::string泄漏,就要正常return而不是exit,或者
+gcc3.3以后版本环境变量加export GLIBCXX_FORCE_NEW=1编译测试程序,来让stl不要进行cache
+
+		libprotobuf-dev python-protobuf
+
+
+
+juce所需的库
+sudo apt-get -y install g++
+sudo apt-get -y install libfreetype6-dev
+sudo apt-get -y install libx11-dev
+sudo apt-get -y install libxinerama-dev
+sudo apt-get -y install libxcursor-dev
+sudo apt-get -y install mesa-common-dev
+sudo apt-get -y install libasound2-dev
+sudo apt-get -y install freeglut3-dev
+sudo apt-get -y install libxcomposite-dev
+
+usb-modeswitch
+wvdial

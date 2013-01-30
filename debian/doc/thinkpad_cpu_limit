@@ -1,0 +1,1 @@
+Add "processor.ignore_ppc=1" to kernel boot command line. This allows to disable BIOS frequency limit, but can be cause the computer to malfunction if its power consumption is higher than 65W and you are running off a 65W AC power adapter with no battery installed.

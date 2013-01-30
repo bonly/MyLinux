@@ -1,0 +1,5 @@
+http://ahuaxuan.iteye.com/blog/657511
+/proc/sys/net/ipv4/tcp_max_orphans
+
+/proc/sys/net/ipv4/tcp_max_syn_backlog
+记 录的那些尚未收到客户端确认信息的连接请求的最大值。对于有128M内存的系统而言，缺省值是1024，小内存的系统则是128。如果服务器不堪重负，试 试提高这个值。注意！如果你设置这个值大于1024，最好同时调整include/net/tcp.h中的TCP_SYNQ_HSIZE，以保证 TCP_SYNQ_HSIZE*16 ≤tcp_max_syn_backlo，然后重新编译内核

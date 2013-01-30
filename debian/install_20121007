@@ -1,0 +1,16 @@
+20121007	sudo,locales,wpasupplicant
+                xserver-org-core xinit
+                gnome-shell
+
+		fcitx
+                openssh-client
+                initramfs-tools
+                build-essential   libncurses5-dev
+                libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev #for git build-dep
+                subversion #for svn build-dep
+20121009        kvm rdesktop xvnc4viewer
+20121011        cmake -D CMAKE_INSTALL_PREFIX:PATH=/home/opt/mysql -DMYSQL_DATADIR=/home/opt/mysql/var -DSYSCONFDIR=~/mysql -DINSTALL_MANDIR=bin/man
+                #scripts/mysql_install_db --user=bonly --basedir=/home/opt/mysql/ --datadir=/home/opt/mysql/var
+		support-files/binary-configure
+                mysql.server 加上basedir变量值 并且mysqld_safe加上参数 --no-defaults
+20121017        #build php ./configure --prefix=/home/opt/php --with-config-file-path=/home/opt/php/etc --with-mysql=/home/opt/mysql --with-mysqli=/home/opt/mysql/bin/mysql_config --enable-fpm --with-fpm-user=bonly --with-fpm-group=bonly --with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-gd --enable-gd-native-ttf --with-libxml-dir --with-curl --enable-safe-mode --with-xmlrpc --with-openssl --with-mhash --with-mcrypt --enable-bcmath --enable-shmop --enable-sysvsem --with-curlwrappers --enable-mbstring --enable-sockets --enable-magic-quotes --with-pear --enable-sysvshm --enable-zip

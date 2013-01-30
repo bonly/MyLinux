@@ -1,0 +1,11 @@
+20121019	sudo,locales,wpasupplicant
+                xserver-org-core xinit
+                gnome-shell
+		fcitx-table-wbpy
+		guake
+                initramfs-tools
+                build-essential   libncurses5-dev
+                openssh-client
+                -libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev #for git build-dep
+                -subversion #for svn build-dep
+                -kvm rdesktop xvnc4viewer

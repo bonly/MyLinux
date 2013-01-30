@@ -1,0 +1,5 @@
+deb http://download.opensuse.org/repositories/home:hillwood/Debian_6.0/ /
+
+#sudo apt-get install osdlyrics
+#sudo apt-get install osdlyrics-beta
+#sudo apt-get install osdlyrics-git

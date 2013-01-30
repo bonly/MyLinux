@@ -1,0 +1,11 @@
+dpkg --add-architecture <arch>
+dpkg --remove-architecture <arch>
+
+source.list
+deb [arch=amd64,i386] http://uk.archive.ubuntu.com/ubuntu/ quantal main universe
+apt-get install package:architecture
+
+apt-get install links:i386
+
+dpkg -i package_version_architecture.deb
+dpkg -r package:architecture

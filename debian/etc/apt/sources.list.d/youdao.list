@@ -1,0 +1,12 @@
+deb http://ppa.launchpad.net/xdlailai/openyoudao/ubuntu precise main
+deb-src http://ppa.launchpad.net/xdlailai/openyoudao/ubuntu precise main
+deb-src http://ppa.launchpad.net/xdlailai/openyoudao/ubuntu precise main
+
+
+#$ 或者使用add-apt-repository 命令：
+#sudo add-apt-repository ppa:xdlailai/openyoudao
+#$ wget http://blog.anantshri.info/content/uploads/2010/09/add-apt-repository.sh.txt
+#$ cp add-apt-repository.sh.txt /usr/sbin/add-apt-repository
+#$ chmod o+x /usr/bin/add-apt-repository
+#$chown root:root /usr/bin/add-apt-repository
+#然后你就可以正常使用 add-apt- repository 命令了

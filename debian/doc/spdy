@@ -1,0 +1,76 @@
+PDY Proxy服务翻墙教程
+
+SPDY 是 Google 开发的基于传输控制协议 (TCP) 的应用层协议 ，通过对HTTPS做略微的修改，使得 在单个SSL连接上可以同时传输多个HTTP请求，提高了其效能，此外，谷歌Chrome还开了一个名为Secure Web Proxy的 项目，旨在让浏览器支持HTTPS协议的proxy server。本文讲述的就是基于这两点而来的SPDY Proxy服务。
+
+其实这个SPDY Proxy架设方法在以前的文章中已经讲述过，还有网友搭建了测试服务。这次是一个补充。以下是教程详情：
+
+首先，安装Node.js
+
+以Debian 6系统VPS编译安装为例（其他系统安装参考），以root身份登录VPS后依次执行如下命令编译安装
+
+apt-get install python g++ make
+mkdir ~/nodejs && cd $_
+wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz && cd `ls -rd node-v*`
+./configure
+make install
+
+其次，搭建SPDY Proxy
+
+安装好Node.js环境后，执行如下命令安装SPDY Proxy
+
+npm install -g spdyproxy
+
+安装完成后执行如下命令运行代理服务
+
+spdyproxy -k keys/mykey.pem -c keys/mycert.pem -p 44300 -U user -P pass
+
+其中keys/mykey.pem为私钥位置，keys/mycert.pem为证书位置，44300为你设置的代理服务端口，user为代理认证用户名，pass为代理认证密码，执行spdyproxy –help命令可查看其支持的全部参数，此命令在关闭命令窗口时会停止运行而使代理无法使用，可以参考此文让此命令后台运行，并可参考此文设置开机启动。
+
+私钥和证书建议参考此教程申请使用StartSSL的免费ssl证书，也可以使用如下命令自签证书
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mykey.pem -out mycert.pem
+
+由于自签证书不会被浏览器信任，所以要客户电脑导入mycert.pem证书到“受信任的根证书颁发机构”（StartSSL的免费ssl证书由于被浏览器信任所以无需此客户导入证书步骤）。
+
+44300端口你可以设置为任意未被占用端口，客户端设置也需要相应变更端口，如果设置为443端口，客户端设置可不加端口号（因为https默认使用tcp 443端口）。
+
+代理认证环节可以不用设置，直接去掉命令中的 -U user -P pass即可，当然为防止别人盗用你的代理建议设置，用户名和密码可以设置复杂些，设置后为避免重复输入可以让chrome浏览器记住代理密码。
+
+最后，使用代理翻墙
+
+设置chrome浏览器代理，可以用两种方法：
+
+一、直接设置。
+
+右键查看chrome浏览器桌面快捷方式，在“目标”末尾处加上代理参数（需留一个空格）
+
+--proxy-server=https://代理地址:代理端口
+
+然后点击确定保存设置，保存设置后关闭chrome浏览器，然后使用修改后的快捷方式运行chrome浏览器即可代理翻墙（使用详情可参考此文）。
+
+二、使用.pac脚本
+
+新建文本文件，粘贴以下内容
+
+function FindProxyForURL(url, host) { return “HTTPS 代理地址:代理端口″; }
+
+保存为spdy.pac文件后放置到E盘根目录（其他位置做相关修改即可），设置浏览器“使用自动配置脚本”地址为 file:///E:/spdy.pac 即可（此法结合flora.pac或AutoProxy2PAC或可实现智能代理）。
+
+SPDY Proxy项目地址：https://github.com/igrigorik/node-spdyproxy
+
+测试可用，不过目前还不太完善，比如在观看在线视频或下载时，有兴趣的可以帮助其改进，也可以参考以下可能类似项目：
+
+https://github.com/xkxx/node-spdy-proxy
+
+https://github.com/phidelta/spdy-proxy
+
+https://github.com/indutny/node-spdy
+
+另外Apache和nginx也有都提供了SPDY支持，不知道结合其自身代理功能能否搭建类似SPDY Proxy，有兴趣的研究：
+
+https://developers.google.com/speed/spdy/mod_spdy/
+
+http://nginx.org/patches/spdy/README.txt
+
+本文原始地址：http://igfw.net/archives/11607

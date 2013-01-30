@@ -1,0 +1,9 @@
+deb [arch=amd64,i386] http://mirrors.163.com/debian stable main non-free contrib
+deb [arch=amd64,i386] http://mirrors.163.com/debian testing main non-free contrib
+deb [arch=amd64,i386] http://mirrors.163.com/debian sid main non-free contrib
+deb [arch=amd64,i386] http://mirrors.163.com/debian experimental main non-free contrib
+
+deb-src http://mirrors.163.com/debian stable main non-free contrib
+deb-src http://mirrors.163.com/debian testing main non-free contrib
+deb-src http://mirrors.163.com/debian sid main non-free contrib
+deb-src http://mirrors.163.com/debian experimental main non-free contrib

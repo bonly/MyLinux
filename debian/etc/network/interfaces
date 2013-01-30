@@ -1,0 +1,126 @@
+# Used by ifup(8) and ifdown(8). See the interfaces(5) manpage or
+# /usr/share/doc/ifupdown/examples for more information.
+auto lo
+iface lo inet loopback
+
+#auto wlan0
+allow-hotplug wlan0 usb0 eth0 bat0
+
+iface wlan0 inet dhcp
+  pre-up wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -f /var/log/wpa_supplicant.log
+  post-down killall -q wpa_supplicant 
+
+iface usb0 inet dhcp
+iface eth0 inet dhcp
+iface bat0 inet dhcp
+
+#auto eth1
+iface eth1 inet static
+  address 192.168.1.11
+  netmask 255.255.255.0
+  geteway 192.168.1.1
+
+iface bonlyh inet dhcp
+  wpa-ssid bonlyh
+  wpa-psk 102012311016
+  wpa-ap-scan 1
+  wpa-scan-ssid 1
+  #wireless-essid bonlyh
+  #wireless-key open 4406021978
+
+iface cx_ocs inet dhcp
+  wpa-ssid CX_OCS
+  wpa-psk RPWTWRPWTW
+  wpa-ap-scan 1
+  wpa-scan-ssid 1
+
+iface congxing inet dhcp
+  wpa-ssid congxing
+  wpa-psk smccs
+  wpa-ap-scan 1
+  wpa-scan-ssid 1
+
+iface unicom inet static
+  address 130.51.24.112
+  netmask 255.255.255.0
+  gateway 130.51.24.254
+
+iface sunrise inet static
+  #address 172.20.36.179
+  #address 172.20.36.7
+  address 172.20.36.48
+  netmask 255.255.248.0
+  gateway 172.20.39.251
+  #dns 172.20.0.11/12
+  #sudo route add -net 192.168.0.0 netmask 255.255.255.0 dev eth0
+
+iface hys23 inet dhcp
+  wireless-essid 23HYS
+  wireless-key open  1234567890
+
+iface fshome inet dhcp
+  wpa-ssid Heller
+  wpa-psk hayeshome
+  wpa-ap-scan 1
+  wpa-scan-ssid 1
+
+iface ly inet dhcp
+  wireless-essid LY11
+  wireless-key open 1234567890 
+
+iface tplink1 inet dhcp
+  wireless-essid TP-LINK_22FC4A
+
+iface MC inet dhcp
+  wpa-ssid McDonald-OC
+  wpa-psk Ac28Idfjla92ifjsl3jsHdowIo
+  wpa-ap-scan 1
+  wpa-scan-ssid 1
+
+iface pddpt inet dhcp
+  wpa-ssid PDDPT
+  wpa-psk 87654321
+  wpa-ap-scan 1
+  wpa-scan-ssid 1
+
+iface tenda inet dhcp
+  wpa-ssid Tenda
+  wpa-psk 20040819
+  wpa-ap-scan 1
+  wpa-scan-ssid 1
+
+iface sunrise_tplink inet dhcp
+  wireless-essid TP-LINK_58AC42
+  wireless-key open  12345
+
+iface br0 inet dhcp
+     bridge_ports eth0 wlan1
+     pre-up ifconfig eth0 0.0.0.0 up
+     pre-up ifconfig wlan1 0.0.0.0 up
+     pre-up iwconfig wlan1 mode master
+     #pre-up iwconfig wlan1 mode master key s:blahblahblah1
+     pre-up brctl addbr br0
+     pre-up brctl addif eth0
+     pre-up brctl addif wlan1
+     post-down ifconfig eth0 0.0.0.0 down
+     post-down ifconfig wlan1 0.0.0.0 down
+     post-down brctl delif br0 eth0
+     post-down brctl delif br0 wlan1
+     post-down brctl delbr br0
+
+iface route11 inet static
+  address 192.168.11.2 
+  netmask 255.255.255.0
+  #gateway 192.168.11.1
+
+iface route10 inet static
+  address 192.168.1.2 
+  netmask 255.255.255.0
+
+iface heip inet6 v4tunnel  
+  address 2001:470:18:952::2
+  netmask 64
+  endpoint 216.218.221.6
+  local 192.168.1.185
+  ttl 255
+  gateway 2001:db8:0f10:99d::1

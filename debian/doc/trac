@@ -1,0 +1,1 @@
+/usr/bin/python /usr/sbin/tracd --port 8010 --basic-auth="*,/usr/local/trac/conf/passwd," /usr/local/trac 
