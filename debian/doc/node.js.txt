@@ -1,0 +1,10 @@
+這個 nodejs 套件本身有包含一個 npm 的 node module，
+在使用 `npm update -g` 會更新到它，
+但是我不希望 npm 會被更新到，
+而且我也不想要使用 `npm install -g` 去影響到系統上面的重要目錄 /usr/bin，
+所以我先設定了 `npm config set prefix /home/$(whoami)/.local` 
+然後再把 PATH="$PATH:$HOME/.local/bin" 加到 ~/.profile 裡面，
+重新登入後就不需要使用 sudo 來使用 npm install -g 了。
+
+接下來是使用 npm 手動建立一個 Node.js 的專案
+mkdir myapp && cd myapp && npm init

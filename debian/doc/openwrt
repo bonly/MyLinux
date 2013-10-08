@@ -1,0 +1,4 @@
+sudo ifdown eth0 && sudo ifup eth0=route11 && ping 192.168.11.1
+
+
+echo -e "binary\nrexmt 1\ntimeout 60\ntrace\nput openwrt-xxx-x.x-xxx.trx\n" | tftp 192.168.11.1

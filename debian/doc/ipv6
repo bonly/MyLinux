@@ -1,0 +1,5 @@
+route -A inet6 add default gw 2001:470:18:952::1
+or
+ip -6 route add default via 2001:470:18:952::1
+
+ip -6 neigh show

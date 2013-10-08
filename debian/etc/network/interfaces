@@ -7,7 +7,8 @@ iface lo inet loopback
 allow-hotplug wlan0 usb0 eth0 bat0
 
 iface wlan0 inet dhcp
-  pre-up wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -f /var/log/wpa_supplicant.log
+  pre-up wpa_supplicant -B -D wext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -f /var/log/wpa_supplicant.log -s
+  #pre-up wpa_supplicant -B -D nl80211 -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -f /var/log/wpa_supplicant.log -s
   post-down killall -q wpa_supplicant 
 
 iface usb0 inet dhcp
@@ -19,6 +20,10 @@ iface eth1 inet static
   address 192.168.1.11
   netmask 255.255.255.0
   geteway 192.168.1.1
+  dns-nameservers 192.168.1.1 8.8.8.8 8.8.4.4
+  broadcast 192.168.1.0
+  up route add default gw 192.168.1.1
+  down route del default gw 192.168.1.1
 
 iface bonlyh inet dhcp
   wpa-ssid bonlyh
@@ -27,6 +32,9 @@ iface bonlyh inet dhcp
   wpa-scan-ssid 1
   #wireless-essid bonlyh
   #wireless-key open 4406021978
+
+iface fule inet dhcp
+  wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 
 iface cx_ocs inet dhcp
   wpa-ssid CX_OCS

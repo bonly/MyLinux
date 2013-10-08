@@ -1,0 +1,14 @@
+NGINX_PUSH_NAME=nginx_http_push_module-0.692
+NGINX_NAME=nginx-0.7.67
+
+cd /usr/local/src/archive
+wget http://pushmodule.slact.net/downloads/$NGINX_PUSH_NAME.tar.gz
+wget http://nginx.org/download/$NGINX_NAME.tar.gz
+cd ..
+tar zxvf archive/$NGINX_PUSH_NAME.tar.gz
+tar zxvf archive/$NGINX_NAME.tar.gz
+cd $NGINX_NAME
+./configure --prefix=/usr/local/$NGINX_NAME \
+--add-module=/usr/local/src/$NGINX_PUSH_NAME
+make
+sudo make install

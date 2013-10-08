@@ -1,0 +1,4 @@
+# http://www.bouml.fr/apt/lenny, mirror : http://bouml.free.fr/apt/lenny
+deb http://www.bouml.fr/apt/lenny lenny non-free
+
+#wget -q http://www.bouml.fr/bouml_key.asc -O- | sudo apt-key add -

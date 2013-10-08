@@ -1,0 +1,23 @@
+20130515	sudo,locales,wpasupplicant
+                xserver-xorg-core xinit
+                gnome-shell
+                fcitx-table-wbpy
+                guake
+                initramfs-tools
+                build-essential   libncurses5-dev gdb bc
+                openssh-client
+		dnsmasq
+                g++
+                 
+		python-gevent #for goagent
+		libpcap0.8  libportaudio2 libc-ares2 libsmi2ldbl geoip-database libgeoip1 #for wireshark
+                liblzo2-2 #for openvpn
+                gnome-tweak-tool
+
+		libx11-dev libxft-dev libasound2-dev #for nana
+                libgl1-mesa-dev #for libGL.so android emu
+                libasound2-data libsdl1.2debian libasound2 #for steam
+
+                gksu #sudo for gnome
+                libsctp-dev #for netinet/sctp.h
+                lksctp-tools  

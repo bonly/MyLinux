@@ -1,0 +1,3 @@
+./configure --prefix=/home/opt/wine --with-gallium-drivers=i915 --enable-gallium-llvm --enable-gallium-egl --enable-shared-glapi --enable-glx-tls --enable-dri --enable-glx --enable-osmesa --enable-gles1 --enable-gles2 --enable-egl --enable-texture-float --enable-xa --enable-shared-dricore
+
+

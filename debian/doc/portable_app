@@ -1,0 +1,13 @@
+P=linphone
+mkdir $P.AppDir
+cd $P.AppDir
+sudo apt-get clean
+sudo apt-get -y --force-yes --download-only install $P
+find /var/cache/apt/archives/*.deb -exec dpkg-deb -x {} . \;
+cp $(find . -name *.desktop | grep $P | head -n 1) .
+find . -type f -exec sed -i -e "s|/usr|././|g" {} \;
+cp /cdrom/Applications/Selfmade/AppRun  .
+
+# Create AppImage and test it on the supported distros. 
+# You will notice that you'll need to add more dependencies, e.g.,
+cp /usr/lib/libSDL-1.2.so.* usr/lib/

@@ -1,0 +1,31 @@
+20130515        sudo,locales,wpasupplicant
+                xserver-xorg-core xinit
+                dnsmasq
+                nss3   #chrome
+                gnome-shell
+                fcitx-table-wbpy
+                guake
+                initramfs-tools
+                build-essential   libncurses5-dev gdb bc
+                openssh-client
+                g++
+                 
+		#python-gevent #for goagent
+                #libgl1-mesa-dev #for android emu
+
+		#libpcap0.8  libportaudio2 libc-ares2 libsmi2ldbl geoip-database libgeoip1 #for wireshark
+                #liblzo2-2 #for openvpn
+                #gnome-tweak-tool
+
+		#libx11-dev libxft-dev libasound2-dev #for nana
+                #libgl1-mesa-dev #for libGL.so android emu
+                #libasound2-data libsdl1.2debian libasound2 #for steam
+
+                #gksu #sudo for gnome
+                #libsctp-dev #for netinet/sctp.h
+                #lksctp-tools  
+  
+                #xdotool #按键精灵
+   OpenGL: sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+    OpenAL: sudo apt-get install libopenal1 libopenal-dev
+    ALUT:   sudo apt-get install libalut0 libalut-dev

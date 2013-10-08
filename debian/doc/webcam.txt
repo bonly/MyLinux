@@ -1,0 +1,6 @@
+Media USB Adapters-> USB Video Class (UVC) 
+                     GSPCA based webcams 
+
+Media PCI Adapters
+V4L platform devices -> SoC camera support -> platform camera support   
+Cameras/video grabbers support

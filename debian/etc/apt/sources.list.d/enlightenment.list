@@ -1,0 +1,6 @@
+#deb http://packages.enlightenment.org/debian sid main extras
+deb http://e-deb.sf.net/ etch main 
+#wget http://packages.enlightenment.org/repo.key
+#sudo apt-key add repo.key
+
+#sudo apt-get install e17 emodule-ecomorph compiz compiz-fusion-bcop compiz-plugins compiz-fusion-plugins-extra compiz-fusion-plugins-main compiz-fusion-plugins-unsupport compiz-gnome

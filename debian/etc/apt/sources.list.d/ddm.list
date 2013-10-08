@@ -1,0 +1,2 @@
+deb http://packages.solydxk.com/ solydxk main upstream import
+#apt-get install ddm

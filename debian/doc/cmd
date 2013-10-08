@@ -1,0 +1,10 @@
+#!/bin/sh
+ARGS=""
+for i in "$@" ; do
+        ARGS="$ARGS '$i'"
+done
+
+exec dchroot -c sid386 -d -q "`basename $0`" "$ARGS"
+
+#只需ln -s this_file newcmd 就能运行newcmd
+#`basename $0`取link后的名字 再补上参数来运行

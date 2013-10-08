@@ -1,0 +1,34 @@
+echo $JAVA_HOME/jre/lib/fontconfig.properties
+如果这个文件不存在，可以从fontconfig.properties.src复制一个
+cp $JAVA_HOME/jre/lib/fontconfig.properties.src $JAVA_HOME/jre/lib/fontconfig.properties
+
+为了避免受当前fontconfig配置文件的影响，备份并移除所有bfc文件：
+mkdir $JAVA_HOME/jre/lib/bfcbak/
+mv $JAVA_HOME/jre/lib/*.bfc $JAVA_HOME/jre/lib/bfcbak/
+
+建议将想用的字体文件复制（或创建符号链接）到$JAVA_HOME/jre/lib/fonts，后面的配置会简单一点。
+修改配置文件$JAVA_HOME/jre/lib/fontconfig.properties
+
+到存放有字体文件的文件夹，如$JAVA_HOME/jre/lib/fonts
+mkfontscale
+# 寻找文件中含有iso10646的行（对应Unicode类的编码）
+grep 10646 fonts.scale
+结果类似wqy-microhei.ttc -misc-wenquanyi micro hei-medium-r-normal--0-0-0-0-p-0-iso10646-1
+
+加入字体定义
+在fontconfig.properties中的version=1后面加入类似
+allfonts.chinese-arphic1=-misc-simsun-medium-r-normal--0-0-0-0-p-0-iso10646-1
+如果原来文件中还有设置allfonts.chinese-arphic1的，就把它们注释掉。
+
+指明字体路径,如果已经把字体复制到$JAVA_HOME/jre/lib/fonts，可以略过此步。否则须在配置文件中加上字体文件的完整路径，以宋体为例
+filename.-misc-simsun-medium-r-normal--0-0-0-0-p-0-iso10646-1=simsun.ttc的完整路径
+
+修改字体搜索序列
+在配置文件中查找sequence.allfonts，如果其后的sequence开头的行中有chinese-arphics1，可以略过此步，否则在其后面加入一行
+sequence.fallback=chinese-arphic1
+
+解决字显示不清晰的问题
+有时看到英文显示有锯齿，有时看到中文字边缘不清，这可能都与字体反锯齿的设置不当有关。可以在/etc/profile或~/.bashrc末尾加入
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+其中的lcd也可改为gasp，但效果较好的常是lcd。
+

@@ -1,6 +1,4 @@
-deb http://ppa.launchpad.net/lainme/pidgin-lwqq/ubuntu lucid main 
-#deb-src http://ppa.launchpad.net/lainme/pidgin-lwqq/ubuntu YOUR_UBUNTU_VERSION_HERE
-
-#https://launchpad.net/~lainme/+archive/pidgin-lwqq
-#quantal
-#lucid
+#sudo add-apt-repository ppa:lainme/pidgin-lwqq
+#sudo apt-get update
+#sudo apt-get install pidgin-lwqq
+#编译则需要 sudo apt-get install build-essential cmake pkg-config libglib2.0-dev libcurl4-openssl-dev libpurple-dev

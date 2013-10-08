@@ -1,9 +1,10 @@
 # UNCONFIGURED FSTAB FOR BASE SYSTEM
 /dev/sda2		/		ext4	defaults	0	0	0	
-/dev/sda3		/opt		ext4	defaults	0	0	0	
-/opt/boot		/boot		none	bind		0	0	0
-/opt/lib/modules 	/lib/modules	none 	bind		0	0	0
-/opt/lib/firmware 	/lib/firmware	none 	bind		0	0	0
-/opt/home       	/home		none	bind		0	0	0
-/opt/home/opt   	/home/opt       none    bind		0	0	0
+/dev/sda3		/mnt		ext4	defaults	0	0	0	
+/mnt/opt                /opt            none    bind            0       0       0
+/mnt/boot		/boot		none	bind		0	0	0
+/mnt/lib/modules 	/lib/modules	none 	bind		0	0	0
+/mnt/lib/firmware 	/lib/firmware	none 	bind		0	0	0
+/mnt/home       	/home		none	bind		0	0	0
+/mnt/home/opt   	/home/opt       none    bind		0	0	0
 /dev/sda8		none		swap	defaults	0	0	0	

@@ -1,0 +1,19 @@
+20130320	sudo,locales,wpasupplicant
+                xserver-org-core xinit
+                gnome-shell
+                fcitx-table-wbpy
+                guake
+                initramfs-tools
+                build-essential   libncurses5-dev gdb
+                openssh-client
+		dnsmasq
+                g++
+                 
+		python-gevent #for goagent
+                gnome-tweak-tool
+
+20130326        python-protobuf    libprotobuf-dev  #for nanoproto
+                Mercurial #for hg update go
+
+20130329        libx11-dev libxft-dev libasound2-dev #for nana
+                libgl1-mesa-dev #for libGL.so android emu

@@ -1,0 +1,3 @@
+wine msiexec /i ~/Downloads/TexturePacker-3.1.2-x86.msi 
+wine start aaa.lnk
+

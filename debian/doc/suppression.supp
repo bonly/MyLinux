@@ -1,0 +1,16 @@
+#for load so
+{
+   Ignore dlopen bug.
+   Memcheck:Leak
+   ...
+   fun:_dl_open
+   ...
+}
+
+{
+   Ignore boost thread bug
+   Memcheck:Leak
+   ...
+   fun:boost::detail::get_once_per_thread_epoch
+   ...
+}

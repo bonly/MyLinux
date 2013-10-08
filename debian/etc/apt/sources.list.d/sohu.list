@@ -1,0 +1,25 @@
+ deb http://mirrors.sohu.com/debian-security stable/updates main contrib non-free
+ deb http://mirrors.sohu.com/debian-security testing/updates main contrib non-free
+ ##deb http://mirrors.sohu.com/debian-security sid/updates main contrib non-free
+ ##deb http://mirrors.sohu.com/debian-security experimental/updates main contrib non-free
+
+ deb http://mirrors.sohu.com/debian stable main non-free contrib
+ deb http://mirrors.sohu.com/debian testing main non-free contrib
+ deb http://mirrors.sohu.com/debian sid main non-free contrib
+ deb http://mirrors.sohu.com/debian experimental main non-free contrib
+ deb http://mirrors.sohu.com/debian-backports squeeze-backports main
+
+ deb http://mirrors.sohu.com/debian-multimedia stable main non-free
+ deb http://mirrors.sohu.com/debian-multimedia testing main non-free
+ deb http://mirrors.sohu.com/debian-multimedia sid main non-free
+ deb http://mirrors.sohu.com/debian-multimedia experimental main non-free
+
+ deb-src http://mirrors.sohu.com/debian stable main non-free contrib
+ deb-src http://mirrors.sohu.com/debian testing main non-free contrib
+ deb-src http://mirrors.sohu.com/debian sid main non-free contrib
+ deb-src http://mirrors.sohu.com/debian experimental main non-free contrib
+
+#gpg --keyserver wwwkeys.eu.pgp.net --recv-keys 提示所缺少的那个公钥
+#sudo gpg --keyserver pgpkeys.mit.edu --recv-key 64481591B98321F9
+#sudo gpg --armor --export 公钥串 | sudo apt-key add -
+

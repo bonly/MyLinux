@@ -1,9 +1,27 @@
-deb [arch=amd64,i386] http://mirrors.163.com/debian stable main non-free contrib
-deb [arch=amd64,i386] http://mirrors.163.com/debian testing main non-free contrib
-deb [arch=amd64,i386] http://mirrors.163.com/debian sid main non-free contrib
-deb [arch=amd64,i386] http://mirrors.163.com/debian experimental main non-free contrib
+# deb http://mirrors.163.com/debian stable main non-free contrib
+# deb http://mirrors.163.com/debian testing main non-free contrib
+# deb http://mirrors.163.com/debian sid main non-free contrib
+# deb http://mirrors.163.com/debian experimental main non-free contrib
+# deb http://mirrors.163.com/debian-backports squeeze-backports main
 
-deb-src http://mirrors.163.com/debian stable main non-free contrib
-deb-src http://mirrors.163.com/debian testing main non-free contrib
-deb-src http://mirrors.163.com/debian sid main non-free contrib
-deb-src http://mirrors.163.com/debian experimental main non-free contrib
+ deb [arch=amd64,i386] http://mirrors.163.com/debian stable main non-free contrib
+ deb [arch=amd64,i386] http://mirrors.163.com/debian testing main non-free contrib
+ deb [arch=amd64,i386] http://mirrors.163.com/debian sid main non-free contrib
+ deb [arch=amd64,i386] http://mirrors.163.com/debian experimental main non-free contrib
+ deb [arch=amd64,i386] http://mirrors.163.com/debian-backports squeeze-backports main
+
+# deb [arch=amd64,i386] http://mirrors.163.com/debian-security stable/update main
+# deb [arch=amd64,i386] http://mirrors.163.com/debian-security testing/update main
+# deb [arch=amd64,i386] http://mirrors.163.com/debian-security sid/update main
+
+# deb http://www.deb-multimedia.org testing main non-free
+
+# deb-src http://mirrors.163.com/debian stable main non-free contrib
+# deb-src http://mirrors.163.com/debian testing main non-free contrib
+# deb-src http://mirrors.163.com/debian sid main non-free contrib
+# deb-src http://mirrors.163.com/debian experimental main non-free contrib
+
+#gpg --keyserver wwwkeys.eu.pgp.net --recv-keys 提示所缺少的那个公钥
+#gpg --keyserver pgpkeys.mit.edu --recv-key 64481591B98321F9
+#gpg --armor --export 公钥串 | apt-key add -
+

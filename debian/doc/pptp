@@ -1,0 +1,1 @@
+pptpsetup --create vpn --server 93.115.84.198 --username vpnbook --password wUvr8kjM --encrypt --start

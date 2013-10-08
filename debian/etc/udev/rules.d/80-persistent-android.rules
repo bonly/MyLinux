@@ -1,0 +1,5 @@
+# adb protocol on passion (Nexus One)
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="4e12", MODE="0600", OWNER="<username>"
+# fastboot protocol on passion (Nexus One)
+SUBSYSTEM=="usb", ATTR{idVendor}=="0bb4", ATTR{idProduct}=="0fff", MODE="0600", OWNER="<username>"
+SUBSYSTEM=="usb", ATTR{idVendor}=="1782", ATTR{idProduct}=="5d04", MODE="0600", OWNER="<username>"
