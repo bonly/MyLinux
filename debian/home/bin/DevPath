@@ -1,0 +1,146 @@
+OPT=/home/opt
+CPATH=.
+LIBRARY_PATH=.
+PKG_CONFIG_PATH=.
+
+
+#git
+if [[ ! -f $OPT/bin/.git-completion.bash ]] ; then
+    echo "Download git-completion.bash"
+    wget -qc "https://raw.github.com/git/git/master/contrib/completion/git-completion.bash" -O $OPT/bin/.git-completion.bash
+fi
+source $OPT/bin/.git-completion.bash
+GIT=$OPT/git
+PATH=$GIT/bin:$GIT/share:$PATH
+
+#nana
+NANA_P=/home/opt/nana
+CPATH=$NANA_P/include:$CPATH
+LIBRARY_PATH=$NANA_P/build/bin:$LIBRARY_PATH
+
+#NACL
+export NACL_SDK_ROOT=/home/opt/nacl_sdk/pepper_26
+CPATH=$NACL_SDK_ROOT/include/:$CPATH
+LIBRARY_PATH=$NACL_SDK_ROOT/lib:$LIBRARY_PATH
+export NACL_DEBUG_ENABLE=1
+export PPAPI_BROWSER_DEBUG=1
+export NACL_PLUGIN_DEBUG=1
+export NACL_PPAPI_PROXY_DEBUG=1
+export NACL_SRPC_DEBUG=1
+export NACLVERBOSITY=1
+export NACLLOG=/tmp/nacl.log
+export NACL_EXE_STDOUT=/tmp/nacl_out.log
+export NACL_EXE_STDERR=/tmp/nacl_err.log
+PATH=$NACL_SDK_ROOT/tools:$PATH
+
+#opencv
+OPENCV=/home/bonly/opt/opencv
+PATH=$OPENCV/bin:$OPENCV/share:$PATH
+PKG_CONFIG_PATH=$OPENCV/lib/pkgconfig:$PKG_CONFIG_PATH
+LD_LIBRARY_PATH=$OPENCV/lib:$LD_LIBRARY_PATH
+
+#NDK
+export NDK_ROOT=/home/opt/ndk
+export NDK_MODULE_PATH=./
+export NDK_BUILD=$NDK_ROOT/ndk-build
+export NdkGdb=$NDK_ROOT/ndk-gdb
+# APP_ABI:=x86
+PATH=$NDK_ROOT:$PATH
+
+#cocos2d #ndk-build in bin will change these
+#export COCOS2DX=/home/opt/cocos2d
+#export NDK_MODULE_PATH=$COCOS2DX:$COCOS2DX/cocos2dx/platform/third_party/android/prebuilt:$NDK_MODULE_PATH
+
+#glog
+GLOG_LIB=$OPT/glog/.libs
+LD_LIBRARY_PATH=$GLOG_LIB:$LD_LIBRARY_PATH
+export GOPATH=$PWD/../:$GOPATH
+
+#boost
+BOOST_ROOT=$OPT/boost
+BOOST_LIB=$OPT/boost/stage/lib
+LD_LIBRARY_PATH=$BOOST_LIB:$LD_LIBRARY_PATH
+CPATH=$OPT/boost:$CPATH
+LIBRARY_PATH=$LIBRARY_PATH:$BOOST_LIB
+
+#mysql
+#basedir=$OPT/mysql
+basedir=$OPT/maria
+PATH=$basedir/bin:$basedir/support-files:$PATH
+LD_LIBRARY_PATH=$basedir/lib:$LD_LIBRARY_PATH
+
+#svn
+PATH=$OPT/svn/share:$PATH
+LD_LIBRARY_PATH=$OPT/svn/lib:$LD_LIBRARY_PATH
+export SVN_EDITOR=vim
+export SVN_MERGE=meldf
+#export SVN_MERGE=mdiff
+
+#global
+GLOBAL=$OPT/global
+PATH=$GLOBAL/bin:$GLOBAL/share:$PATH
+LD_LIBRARY_PATH=$GLOBAL/lib:$LD_LIBRARY_PATH
+
+#graphviz
+PATH=$OPT/graphviz/bin:$OPT/graphviz/share:$PATH
+LD_LIBRARY_PATH=$OPT/graphviz/lib:$LD_LIBRARY_PATH
+
+#doxygen
+PATH=$OPT/doxygen/bin:$PATH
+
+#meld
+PATH=$OPT/meld-1.6.0/bin:$PATH
+#LD_LIBRARY_PATH=$OPT/meld-1.6.0/
+
+#valgrind
+#让valgrind 不报std::string泄漏,就要正常return而不是exit,或者
+#gcc3.3以后版本环境变量加export GLIBCXX_FORCE_NEW=1编译测试程序,来让stl不要进行cache
+#export GLIBCXX_FORCE_NEW=1
+#--gen-suppressions=all/no
+#--suppressions=/home/bonly/opt/valgrind/lib/valgrind/default.supp
+#--suppressions=/home/bonly/opt/valgrind/suppression.supp
+PATH=$OPT/valgrind/bin:$OPT/valgrind/share:$PATH
+v() {
+      ulimit -c unlimited 
+      valgrind --suppressions=/home/bonly/opt/valgrind/suppression.supp --log-file=/tmp/valgrind.log "$@"
+}
+
+
+#ddd
+PATH=$OPT/ddd/bin:$OPT/ddd/share:$PATH
+
+#android 
+ADT=$OPT/adt
+ANDROID_SDK_ROOT=$ADT
+PATH=$ADT/sdk/tools:$ADT/platform-tools:$PATH
+
+#java
+JAVA_HOME=$OPT/opt/jdk1.7.0_07
+PATH=$OPT/opt/jdk1.7.0_07/bin:$PATH 
+CLASSPATH=.:$ADT/sdk/platforms/android-8/android.jar
+export JAVA_HOME
+
+#open-mpi
+OMPI=$OPT/openmpi
+PATH=$OMPI/bin:$OMPI/share:$PATH
+LD_LIBRARY_PATH=$OMPI/lib:$LD_LIBRARY_PATH
+
+#perf
+PERF=$OPT/perf
+PATH=$PERF/bin:$PATH
+
+#cscope
+#export CSCOPE_DB=$OPT/cscope/cscope.out
+#csdb (){
+#   find . -name '*.c' -o -name '*.h'  -o -name '*.cpp' -o -name '*.hpp' -o -name '*.cc' > $OPT/cscope/cscope.files
+#   cscope -ib $OPT/cscope/cscope.files
+#}
+
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH
+export PATH=.:$PATH
+export GLIBCXX_FORCE_NEW=1
+export CPATH
+export LIBRARY_PATH
+#export LD_PRELOAD=/lib/x86_64-linux-gnu/libpthread.so.0
+export LD_PRELOAD=/lib/i386-linux-gnu/libpthread.so.0
