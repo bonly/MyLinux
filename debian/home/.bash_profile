@@ -9,7 +9,7 @@ alias devenv='. /home/opt/bin/DevPath'
 #alias lcpu='$HOME/bin/cpu ondemand &'
 alias vcpu='cat /proc/cpuinfo |grep MHz'
 
-source /home/opt/bin/AppPath
+[[ -f ~/bin/AppPath ]] && source ~/bin/AppPath
 
 #function _update_ps1(){
 #  export PS1="$(~/bin/powerline-bash.py $?)"
